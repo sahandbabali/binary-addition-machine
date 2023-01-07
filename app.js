@@ -68,21 +68,33 @@ let result = 000000000;
 let resultrow
 
 checkboxes.forEach(function (checkbox) {
-    checkbox.addEventListener('change', function () {
+    checkbox.addEventListener('change', function (e) {
+
+        if (checkbox.checked == true) {
+            e.target.previousElementSibling.innerText = '1'
+
+        } else if (checkbox.checked == false) {
+
+            e.target.previousElementSibling.innerText = '0'
+        } 
+
+
         inputnumbers = []
         row1 = []
         row2 = []
 
         checkboxes.forEach(function (checkbox) {
+          
 
 
 
-            if (checkbox.checked == true) {
+           if (checkbox.checked == true) {
                 inputnumbers.push(1)
             } else if (checkbox.checked == false) {
                 inputnumbers.push(0)
 
-            }
+
+            } 
         })
 
         row1 = inputnumbers.slice(0, 8)
@@ -91,8 +103,8 @@ checkboxes.forEach(function (checkbox) {
 
         // console.log(inputnumbers)
        //  console.log(row1 , row2)
-         console.log(row1.join(""));
-         console.log(row2.join(""));
+      //   console.log(row1.join(""));
+        // console.log(row2.join(""));
 
 
          // calculate the result 
@@ -101,12 +113,12 @@ checkboxes.forEach(function (checkbox) {
          // pad result
          result = ('0' + result).slice(-9)
 
-         console.log(result)
+         // console.log(result)
          console.log("_______________")
          // update the ui
 
          resultrow =  document.querySelectorAll(".reslamp")
-         console.log(resultrow)
+         // console.log(resultrow)
          
 
          for (let index = 0; index < resultrow.length; index++) {
