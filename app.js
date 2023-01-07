@@ -1,4 +1,4 @@
-// inspired by an example from https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319 book
+// inspired by an example from https://www.amazon.com/Code-Language-Computer-Hardware-Software/dp/0735611319
 
 // binary addition in Javascript from:
 // https://stackoverflow.com/questions/40353000/javascript-add-two-binary-numbers-returning-binary
