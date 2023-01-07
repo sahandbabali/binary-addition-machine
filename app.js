@@ -3,16 +3,6 @@
 // binary addition in Javascript from:
 // https://stackoverflow.com/questions/40353000/javascript-add-two-binary-numbers-returning-binary
 
-
-var a = "000010100000100100110110010000010101111011011001101110111111111101000000101111001110001111100001101"
-var b = "110101001011101110001111100110001010100001101011101010000011011011001011101111001100000011011110011"
-var answer = "110111101100010011000101110110100000011101000101011001000011011000001100011110011010010011000000000";
-
-//var row1 = "01100101"
-//var row2 = "10110110"
-//var result = "100011011";
-
-
 function halfAdder(a, b) {
     const sum = xor(a, b);
     const carry = and(a, b);
@@ -53,13 +43,6 @@ function addBinary(a, b) {
     return carry ? carry + sum : sum;
 }
 
-
-
-
-//console.log(addBinary(a, b) == answer); //true
-
-//console.log(addBinary(row1, row2) == result); //true
-
 var checkboxes = document.querySelectorAll("input[type=checkbox]");
 let inputnumbers = []
 let row1 = []
@@ -78,34 +61,21 @@ checkboxes.forEach(function (checkbox) {
             e.target.previousElementSibling.innerText = '0'
         } 
 
-
         inputnumbers = []
         row1 = []
         row2 = []
 
         checkboxes.forEach(function (checkbox) {
-          
-
-
 
            if (checkbox.checked == true) {
                 inputnumbers.push(1)
             } else if (checkbox.checked == false) {
                 inputnumbers.push(0)
-
-
             } 
         })
 
         row1 = inputnumbers.slice(0, 8)
         row2 = inputnumbers.slice(8)
-
-
-        // console.log(inputnumbers)
-       //  console.log(row1 , row2)
-      //   console.log(row1.join(""));
-        // console.log(row2.join(""));
-
 
          // calculate the result 
          result = addBinary(row1.join(""), row2.join(""))
@@ -113,8 +83,6 @@ checkboxes.forEach(function (checkbox) {
          // pad result
          result = ('0' + result).slice(-9)
 
-         // console.log(result)
-         console.log("_______________")
          // update the ui
 
          resultrow =  document.querySelectorAll(".reslamp")
@@ -124,11 +92,6 @@ checkboxes.forEach(function (checkbox) {
          for (let index = 0; index < resultrow.length; index++) {
                 resultrow[index].innerText = result[index]
          }
-
-
-
-
-
 
     })
 });
