@@ -64,8 +64,8 @@ var checkboxes = document.querySelectorAll("input[type=checkbox]");
 let inputnumbers = []
 let row1 = []
 let row2 = []
-let result;
-
+let result = 000000000;
+let resultrow
 
 checkboxes.forEach(function (checkbox) {
     checkbox.addEventListener('change', function () {
@@ -97,12 +97,24 @@ checkboxes.forEach(function (checkbox) {
 
          // calculate the result 
          result = addBinary(row1.join(""), row2.join(""))
+
+         // pad result
+         result = ('0' + result).slice(-9)
+
          console.log(result)
          console.log("_______________")
-
-
-
          // update the ui
+
+         resultrow =  document.querySelectorAll(".reslamp")
+         console.log(resultrow)
+         
+
+         for (let index = 0; index < resultrow.length; index++) {
+                resultrow[index].innerText = result[index]
+         }
+
+
+
 
 
 
