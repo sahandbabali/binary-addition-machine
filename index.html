@@ -13,18 +13,55 @@
       body {
         text-align: center;
       }
+    
       table {
         border: 1px solid black;
         text-align: center;
       }
       td {
-        padding: 1rem;
-        font-size: 2rem;
+        padding: 2rem;
+        font-size: 3rem;
+        width: 11% ;
+        border: 1px solid lightgray;
+        padding-top: 0;
+
+
       }
       table {
         margin-left: auto;
         margin-right: auto;
       }
+
+      #plussign  {
+        border-top: none;
+      }
+      #emptycell {
+        border-bottom: none;
+      }
+      .odometer{
+        display: block !important;
+      }
+      #resultrow td {
+        padding-top: 2rem;
+      }
+     #buttonbox {
+      padding: 1rem;
+     }
+     #buttonbox * {
+      padding: 1rem;
+     }
+
+
+     input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  transform: scale(2);
+  padding: 10px;
+}
     </style>
   </head>
   <body>
@@ -32,7 +69,7 @@
 
     <table>
       <tr>
-        <td></td>
+        <td id="emptycell"></td>
 
         <td>
           <p class="odometer">0</p>
@@ -69,8 +106,8 @@
           <input type="checkbox" />
         </td>
       </tr>
-      <tr>
-        <td>+</td>
+      <tr >
+        <td id="plussign">+</td>
 
         <td>
           <p class="odometer">0</p>
@@ -107,8 +144,8 @@
         </td>
       </tr>
 
-      <tr style="background-color: lightgray">
-        <td><p class="reslamp">0</p></td>
+      <tr id="resultrow" style="background-color: lightgray">
+        <td><p class="reslamp odometer">0</p></td>
 
         <td><p class="reslamp odometer">0</p></td>
         <td><p class="reslamp odometer">0</p></td>
@@ -121,6 +158,14 @@
         <td><p class="reslamp odometer">0</p></td>
       </tr>
     </table>
+
+    <div id="buttonbox">
+      <button>Reset</button>
+      <button>Random</button>
+
+    </div>
+
+    
 
     <script src="./odometer.js"></script>
 
