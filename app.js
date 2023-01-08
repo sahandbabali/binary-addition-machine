@@ -3,6 +3,28 @@
 // binary addition in Javascript from:
 // https://stackoverflow.com/questions/40353000/javascript-add-two-binary-numbers-returning-binary
 
+
+
+let resetbutton = document.getElementById("resetbutton").addEventListener('click' , function(e){
+
+    let inputnumbers = []
+    let row1 = []
+    let row2 = []
+    let result = 000000000;
+    let resultrow 
+
+     checkboxes.forEach(function (checkbox) {
+            checkbox.checked = false
+     })
+
+
+     document.querySelectorAll(".odometer").forEach(function (digit) {
+        digit.innerText = 0
+ })
+
+})
+
+
 function halfAdder(a, b) {
     const sum = xor(a, b);
     const carry = and(a, b);
@@ -50,48 +72,50 @@ let row2 = []
 let result = 000000000;
 let resultrow
 
-checkboxes.forEach(function (checkbox) {
-    checkbox.addEventListener('change', function (e) {
+let change = function (e) {
 
-        if (checkbox.checked == true) {
-            e.target.previousElementSibling.innerText = '1'
+    if (e.target.checked == true) {
+        e.target.previousElementSibling.innerText = '1'
 
-        } else if (checkbox.checked == false) {
+    } else if (e.target.checked == false) {
 
-            e.target.previousElementSibling.innerText = '0'
+        e.target.previousElementSibling.innerText = '0'
+    } 
+
+    inputnumbers = []
+    row1 = []
+    row2 = []
+
+    checkboxes.forEach(function (checkbox2) {
+
+       if (checkbox2.checked == true) {
+            inputnumbers.push(1)
+        } else if (checkbox2.checked == false) {
+            inputnumbers.push(0)
         } 
-
-        inputnumbers = []
-        row1 = []
-        row2 = []
-
-        checkboxes.forEach(function (checkbox) {
-
-           if (checkbox.checked == true) {
-                inputnumbers.push(1)
-            } else if (checkbox.checked == false) {
-                inputnumbers.push(0)
-            } 
-        })
-
-        row1 = inputnumbers.slice(0, 8)
-        row2 = inputnumbers.slice(8)
-
-         // calculate the result 
-         result = addBinary(row1.join(""), row2.join(""))
-
-         // pad result
-         result = ('0' + result).slice(-9)
-
-         // update the ui
-
-         resultrow =  document.querySelectorAll(".reslamp")
-         // console.log(resultrow)
-         
-
-         for (let index = 0; index < resultrow.length; index++) {
-                resultrow[index].innerText = result[index]
-         }
-
     })
+
+    row1 = inputnumbers.slice(0, 8)
+    row2 = inputnumbers.slice(8)
+
+     // calculate the result 
+     result = addBinary(row1.join(""), row2.join(""))
+
+     // pad result
+     result = ('0' + result).slice(-9)
+
+     // update the ui
+
+     resultrow =  document.querySelectorAll(".reslamp")
+     // console.log(resultrow)
+     
+
+     for (let index = 0; index < resultrow.length; index++) {
+            resultrow[index].innerText = result[index]
+     }
+
+}
+
+checkboxes.forEach(function (checkbox) {
+    checkbox.addEventListener('change', change )
 });
